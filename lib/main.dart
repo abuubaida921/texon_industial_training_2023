@@ -1,5 +1,7 @@
 import 'package:duet_industrial_training/second_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -115,9 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 child: Text(
-                  'Nur NobiNur NobiNur NobiNur NobiNur NobiNur NobiNur NobiNur Nobi',
+                  'Nur Nobi',
                   style: TextStyle(fontSize: 30),
-                ),
+                ).animate().fadeIn().scale().move(delay: 1000.ms,duration: 60.ms).blurXY(),
               ),
             ],
           ),
@@ -128,9 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondScreen()));
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Clicked on position no ${index + 1}')));
+                    onTap:() {
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondScreen()));
+                      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Clicked on position no ${index + 1}')));
+                      Fluttertoast.showToast(msg: 'Clicked on position no');
                     },
                     title: Text('${index + 1}. Texon Limited',style: TextStyle(color: Colors.white),),
                   );
